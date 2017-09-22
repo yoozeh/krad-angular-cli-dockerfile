@@ -10,7 +10,7 @@ WORKDIR /app
 RUN apt update && apt upgrade -y
 RUN npm update -g
 RUN npm install -g yarn@latest
-RUN npm install -g typescriptn@latest
+RUN npm install -g typescript@latest
 RUN npm install -g @angular/cli@latest
 RUN ng set --global packageManager=yarn
 RUN rm -rf /tmp/* /var/tmp/* *.tar.gz ~/.npm && npm cache clear
