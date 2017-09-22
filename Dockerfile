@@ -8,8 +8,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 RUN apt-get update && apt-get upgrade -y
-RUN npm update -g
-RUN npm install -g typescript@latest
+:RUN npm install -g typescript@latest
 RUN npm install -g @angular/cli@latest
 RUN npm install -g yarn@latest
 RUN ng set --global packageManager=yarn
