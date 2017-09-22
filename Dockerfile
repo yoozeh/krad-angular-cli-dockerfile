@@ -8,10 +8,16 @@ RUN mkdir -p /app
 WORKDIR /app
 
 RUN apt-get update && apt-get upgrade -y
+
+RUN chown -R node:node /usr/local/lib/node_modules
+RUN chown -R node:node /usr/local/bin
+USER node
+
 RUN npm install -g typescript@latest
 RUN npm install -g @angular/cli@latest
 RUN npm install -g yarn@latest
 RUN ng set --global packageManager=yarn
-RUN rm -rf /tmp/* /var/tmp/* *.tar.gz ~/.npm && npm cache clear
+RUN rm -rf /tmp/* /var/tmp/* *.tar.gz ~/.npm && npm cache clear --force
+USER root
 
 CMD ["bash"]
